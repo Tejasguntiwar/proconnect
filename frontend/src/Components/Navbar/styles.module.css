@@ -1,0 +1,43 @@
+.container {
+    padding: 1.2rem 1.5rem 0.9rem;
+    background: #f3f3f3;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.navBar h1 {
+    font-size: clamp(2rem, 2vw, 2.5rem);
+    line-height: 1.1;
+    font-weight: 700;
+    color: #111827;
+}
+
+.navBarOptionContainer {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.navBarOptionContainer p {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #111827;
+    cursor: pointer;
+}
+
+.buttonJoin {
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}

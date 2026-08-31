@@ -1,0 +1,67 @@
+POST http://localhost:5000/register HTTP/1.1
+content-Type: application/json
+
+{
+    "username":"june",
+    "password":"june123",
+    "email":"june@gmail.com",
+    "name":"June"
+}
+
+###
+
+POST http://localhost:5000/register HTTP/1.1
+content-Type: application/json
+
+{
+    "username":"rahul",
+    "password":"rahul123",
+    "email":"rahul@gmail.com",
+    "name":"Rahul"
+}
+
+###
+
+POST http://localhost:5000/login HTTP/1.1
+content-Type: application/json
+
+{
+    "email":"rahul@gmail.com",
+    "password":"rahul123"
+}
+
+###
+GET http://localhost:5000/get_user_and_profile HTTP/1.1
+content-Type: application/json
+
+{
+    "token":"6b6007ab76ca26d6bec41086a1c438632d7e4dcd0a609af03c811c07c662edda"
+}
+
+###
+
+POST http://localhost:5000/update_profile_data HTTP/1.1
+content-Type: application/json
+
+{
+    "token":"659f3ed961d9f1cc772a604b4c8f777c90a0fa54733a4aae8fc7a86aacab60e0",
+    "bio":"Hello, I'm June!",
+    "currentPost": "CTO",
+    "pastWork": [
+        {
+            "company": "Microsoft",
+            "position": "CTO",
+            "years": "2+"
+        }
+    ],
+    "education": [
+        {
+            "school": "MIT",
+            "degree": "Bachelors",
+            "fieldOfStudy": "2015-2019"
+        }
+    ]
+}
+
+###
+GET http://localhost:5000/user/get_all_users HTTP/1.1

@@ -1,0 +1,121 @@
+.container {
+    font-family: 'Inter', sans-serif;
+    padding: 1.2rem;
+    min-height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(2rem, 5vw, 4rem);
+    width: min(1200px, 100%);
+    min-height: 80vh;
+    margin: 0 auto;
+}
+
+.mainContainer_left {
+    flex: 1;
+    max-width: 520px;
+}
+
+.mainContainer_right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.mainContainer_right img {
+    display: block;
+    width: min(100%, 560px);
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 26px rgba(15, 23, 42, 0.08));
+}
+
+.mainContainer_left>p:nth-child(1) {
+    font-size: clamp(2.3rem, 4vw, 4rem);
+    line-height: 1.06;
+    background: -webkit-linear-gradient(45deg, #000000, #929393);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.mainContainer_left>p:nth-child(2) {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    line-height: 1.5;
+    color: #4D4D4D;
+    margin-top: 1rem;
+}
+
+.mainContainer_left>div.buttonJoin {
+    width: fit-content;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
+    margin-top: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    background-color: #1388b2;
+    padding: 0.7rem 1.4rem;
+    border-radius: 20px;
+    color: white;
+}
+
+@media (max-width: 900px) {
+    .container {
+        padding: 1rem 1rem 2rem;
+    }
+
+    .mainContainer {
+        flex-direction: column;
+        gap: 2rem;
+        height: auto;
+        padding: 1rem 0;
+    }
+
+    .mainContainer_left,
+    .mainContainer_right {
+        width: 100%;
+        max-width: 640px;
+        flex: unset;
+    }
+
+    .mainContainer_left {
+        text-align: left;
+    }
+
+    .mainContainer_right img {
+        width: min(100%, 440px);
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0.8rem 0.8rem 1.5rem;
+    }
+
+    .mainContainer {
+        gap: 1.5rem;
+    }
+
+    .mainContainer_left>p:nth-child(1) {
+        font-size: 2.5rem;
+    }
+
+    .mainContainer_left>p:nth-child(2) {
+        font-size: 1.15rem;
+    }
+
+    .mainContainer_left>div.buttonJoin {
+        width: 100%;
+        text-align: center;
+        border-radius: 14px;
+    }
+}

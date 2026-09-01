@@ -7,7 +7,7 @@ const getApiBaseUrl = () => {
         return configuredUrl.trim().replace(/\/$/, "");
     }
 
-    return "http://localhost:5000";
+    return "https://proconnect-snxt.onrender.com/";
 };
 
 export const BASEURL = getApiBaseUrl();

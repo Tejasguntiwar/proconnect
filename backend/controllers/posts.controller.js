@@ -4,6 +4,17 @@ import bcrypt from 'bcrypt';
 import Post from "../models/posts.model.js";
 import Comment from "../models/comments.model.js";
 
+const toPublicUploadPath = (filePath) => {
+    if (!filePath) return "";
+
+    const normalized = filePath.replace(/\\/g, "/");
+    const filename = normalized.includes("/uploads/")
+        ? normalized.split("/uploads/").pop()
+        : normalized.split("/").pop();
+
+    return filename ? `uploads/${filename}` : "";
+};
+
 export const activeCheck = async (req,res) => {
     return res.status(200).json({message:"RUNNING"})
 }
@@ -20,7 +31,7 @@ export const createPost = async (req,res) => {
         const post = new Post({
             userId: user._id,
             body: req.body.body,
-            media: req.file != undefined ? req.file.path : "",
+            media: req.file != undefined ? toPublicUploadPath(req.file.path) : "",
             fileType: req.file != undefined ? req.file.mimetype.split('/')[1] : ""
         })
         await post.save();

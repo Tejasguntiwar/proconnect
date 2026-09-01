@@ -9,6 +9,17 @@ import ConnectionRequest from "../models/connections.model.js";
 import Comment from "../models/comments.model.js";
 import Post from "../models/posts.model.js";
 
+const toPublicUploadPath = (filePath) => {
+    if (!filePath) return "";
+
+    const normalized = filePath.replace(/\\/g, "/");
+    const filename = normalized.includes("/uploads/")
+        ? normalized.split("/uploads/").pop()
+        : normalized.split("/").pop();
+
+    return filename ? `uploads/${filename}` : "";
+};
+
 const convertUserDatetoPDF = async (userProfile) => {
     const outputName = crypto.randomBytes(32).toString("hex") + ".pdf";
     const uploadDir = path.join(process.cwd(), "uploads");
@@ -134,7 +145,7 @@ export const updateProfilePicture = async (req, res) => {
         const user = await User.findOne({ token });
         if (!user) return res.status(404).json({ message: "User not found" });
 
-        user.profilePicture = req.file.path;
+        user.profilePicture = toPublicUploadPath(req.file.path);
 
         await user.save();
 
